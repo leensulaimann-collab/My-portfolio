@@ -189,12 +189,13 @@ footer #contact-icons a {
         font-size: 24px;
     }
 
-    h2 {
-        font-size: 20px;
-        h1 {
-    font-size: 28px;
+h2 {
+    font-size: 20px;
 }
 
+h1 {
+    font-size: 28px;
+}
 p {
     font-size: 18px;
     padding: 0 15px;
