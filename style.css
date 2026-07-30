@@ -191,7 +191,15 @@ footer #contact-icons a {
 
     h2 {
         font-size: 20px;
-    }
+        h1 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 18px;
+    padding: 0 15px;
+    line-height: 1.6;
+}
 
     #menu-container {
         top: 10px;
