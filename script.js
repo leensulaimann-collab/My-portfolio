@@ -1,10 +1,7 @@
-const toggleButton = document.getElementById('lang-toggle');
-let isArabic = false;
+let isArabic = localStorage.getItem('lang') === 'ar';
 
-toggleButton.addEventListener('click', function() {
-    isArabic = !isArabic;
+function applyLanguage() {
     const elements = document.querySelectorAll('[data-en]');
-    
     elements.forEach(function(el) {
         if (isArabic) {
             el.textContent = el.getAttribute('data-ar');
@@ -12,25 +9,39 @@ toggleButton.addEventListener('click', function() {
             el.textContent = el.getAttribute('data-en');
         }
     });
-
     document.documentElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-});
+}
+
+applyLanguage();
+
+const toggleButton = document.getElementById('lang-toggle');
+if (toggleButton) {
+    toggleButton.addEventListener('click', function() {
+        isArabic = !isArabic;
+        localStorage.setItem('lang', isArabic ? 'ar' : 'en');
+        applyLanguage();
+    });
+}
+
 const menuToggle = document.getElementById('menu-toggle');
 const menuList = document.getElementById('menu-list');
+if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+        menuList.classList.toggle('show');
+    });
+}
 
-menuToggle.addEventListener('click', function() {
-    menuList.classList.toggle('show');
-});
 const backToTopButton = document.getElementById('back-to-top');
+if (backToTopButton) {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
 
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-});
-
-backToTopButton.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    backToTopButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
