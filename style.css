@@ -227,3 +227,15 @@ p {
     z-index: 10;
 }  
 }
+#back-home {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #1c2b4a;
+    text-decoration: none;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+}
+
+#back-home:hover {
+    text-decoration: underline;
+}
