@@ -31,6 +31,17 @@ if (menuToggle) {
     });
 }
 
+document.addEventListener('click', function(event) {
+    if (menuList && menuList.classList.contains('show')) {
+        const clickedInsideMenu = menuList.contains(event.target);
+        const clickedToggleButton = menuToggle.contains(event.target);
+        
+        if (!clickedInsideMenu && !clickedToggleButton) {
+            menuList.classList.remove('show');
+        }
+    }
+});
+
 const backToTopButton = document.getElementById('back-to-top');
 if (backToTopButton) {
     window.addEventListener('scroll', function() {
